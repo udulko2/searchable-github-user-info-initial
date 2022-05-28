@@ -3,4 +3,4 @@ This is an initial version, with minimal configurations, for training goals, don
 
 Technologies used: React, Javascript, HTML, CSS.
 
-Deployed on GitHub Pages.
+Deployed on GitHub Pages (url in repository details on the right sidebar).
