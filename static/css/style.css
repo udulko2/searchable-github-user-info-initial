@@ -1,0 +1,883 @@
+/*html, body, #root {
+  width: 100%;
+  height: 100%;
+}*/
+
+/*==================== Initial State styles ====================*/
+
+.InitialState {
+/* 2. Initial State */
+position: relative;
+width: 1366px;
+height: 734px;
+/* Gray Light */
+background: #F9F9F9;
+}
+
+.Group299 {
+/* Group 299 */
+position: absolute;
+width: 210px;
+height: 196px;
+left: 578px;
+top: 269px;
+}
+
+.IconSearch {
+/* icon / search */
+position: absolute;
+width: 110px;
+height: 110px;
+left: 628px;
+top: 269px;
+}
+
+.IconSearchImage {
+/* image */
+position: absolute;
+left: 20.83%;
+right: 20.83%;
+top: 20.83%;
+bottom: 20.83%;
+
+/* Gray Dark */
+/*background: #808080;*/
+}
+
+.IconSearchText {
+/* Type something */
+position: absolute;
+height: 62px;
+left: 42.31%;
+right: 42.31%;
+top: calc(50% - 62px/2 + 67px);
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 22px;
+line-height: 140%;
+/* or 31px */
+text-align: center;
+color: #808080;
+}
+
+/*==================== User Not Found styles ====================*/
+.Group299IS {
+/* Group 299 */
+position: absolute;
+width: 156px;
+height: 165px;
+left: 605px;
+top: 284px;
+}
+
+.IconUser {
+/* icon / user */
+position: absolute;
+width: 110px;
+height: 110px;
+left: 628px;
+top: 284px;
+}
+
+.IconUserText {
+/* Type something */
+position: absolute;
+height: 31px;
+left: 44.29%;
+right: 44.29%;
+top: calc(50% - 31px/2 + 66.5px);
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 22px;
+line-height: 140%;
+/* identical to box height, or 31px */
+text-align: center;
+color: #808080;
+}
+
+/*==================== Repositories Not Found styles ====================*/
+.FullNameIS {
+/* Type something */
+position: absolute;
+height: 34px;
+left: 4.1%;
+right: 83.45%;
+top: calc(50% - 34px/2 + 70px);
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 26px;
+line-height: 130%;
+/* identical to box height, or 34px */
+
+/* Black */
+color: #000000;
+}
+
+.UserNameIS {
+/* Type something */
+position: absolute;
+height: 28.74px;
+left: 4.1%;
+right: 90%;
+top: calc(50% - 28.74px/2 + 113.37px);
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+
+color: #0064EB;
+}
+
+.FollowersDescriptionIS {
+/* Description */
+position: absolute;
+left: 6.44%;
+right: 85.14%;
+top: 70.84%;
+bottom: 25.89%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+/* Black */
+color: #000000;
+}
+
+.FollowingDescriptionIS {
+/* Description */
+position: absolute;
+left: 18.38%;
+right: 74.52%;
+top: 70.84%;
+bottom: 25.89%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+/* Black */
+color: #000000;
+}
+
+.Group299IS {
+/* Group 299 */
+position: absolute;
+width: 243px;
+height: 165px;
+left: 751px;
+top: 269px;
+}
+
+.IconRep {
+/* icon / rep */
+position: absolute;
+width: 110px;
+height: 110px;
+left: 818px;
+top: 269px;}
+
+.IconRepText {
+/* Type something */
+position: absolute;
+height: 31px;
+left: 54.98%;
+right: 27.23%;
+top: calc(50% - 31px/2 + 51.5px);
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 22px;
+line-height: 140%;
+/* identical to box height, or 31px */
+text-align: center;
+color: #808080;
+}
+
+/*==================== Main Screen styles ====================*/
+.MainScreen {
+/* 1. Main Screen */
+position: relative;
+width: 1366px;
+height: 768px;
+/* Gray Light */
+background: #F9F9F9;
+}
+
+.Header {
+/* header */
+position: absolute;
+width: 1366px;
+height: 72px;
+left: 0px;
+top: 0px;
+/* Gray Light */
+background: #F9F9F9;
+}
+
+.Frame {
+/* Frame */
+position: absolute;
+width: 41.02px;
+height: 40px;
+left: 41px;
+top: 16px;
+}
+
+.Vector {
+/* Vector */
+position: absolute;
+left: 0%;
+right: 0.08%;
+top: 0%;
+bottom: -0.01%;
+
+background: #FFFFFF;
+}
+
+.Group287 {
+/* Group 287 */
+position: absolute;
+width: 500px;
+height: 40px;
+left: 104px;
+top: 16px;
+}
+
+.Search {
+/* search */
+position: absolute;
+width: 500px;
+height: 40px;
+left: 104px;
+top: 16px;
+}
+
+.Rectangle1 {
+/* Rectangle 1 */
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+/* White */
+background: #FFFFFF;
+border-radius: 6px;
+}
+
+.Devider {
+/* divider */
+position: absolute;
+left: 0%;
+right: 0%;
+top: 100%;
+bottom: 0%;
+/* Gray */
+border: 1px solid #D4D8DD;
+}
+
+.Body {
+/* body */
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #0064EB;
+}
+
+/*=============================================================*/
+.Group289 {
+/* Group 289 */
+position: absolute;
+width: 292.08px;
+height: 431.98px;
+left: 56px;
+top: 112px;
+}
+
+.Group288 {
+/* Group 288 */
+position: absolute;
+width: 280.97px;
+height: 280px;
+left: 56px;
+top: 112px;
+}
+
+.Image1 {
+/* image 1 */
+position: absolute;
+width: 280px;
+height: 280px;
+left: 57px;
+top: 111px;
+
+/*background: url(image.png);*/
+}
+
+.Ellipse62 {
+/* Ellipse 62 */
+position: absolute;
+width: 280.97px;
+height: 280px;
+left: 56px;
+top: 112px;
+
+background: #C4C4C4;
+}
+
+.Group296 {
+/* Group 296 */
+position: absolute;
+width: 292.08px;
+height: 123.98px;
+left: 56px;
+top: 420px;
+}
+
+.FullNameMS {
+/* Type something */
+position: absolute;
+height: 34px;
+left: 4.1%;
+right: 83.45%;
+top: calc(50% - 34px/2 + 53px);
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 26px;
+line-height: 130%;
+/* identical to box height, or 34px */
+
+/* Black */
+color: #000000;
+}
+
+.UserNameMS {
+/* Type something */
+position: absolute;
+height: 28.74px;
+left: 4.1%;
+right: 90%;
+top: calc(50% - 28.74px/2 + 96.37px);
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+
+color: #0064EB;
+}
+
+.Group302 {
+/* Group 302 */
+position: absolute;
+width: 292.08px;
+height: 24.24px;
+left: 56px;
+top: 519.74px;
+}
+
+.Group301 {
+/* Group 301 */
+position: absolute;
+width: 147px;
+height: 24.24px;
+left: 56px;
+top: 519.74px;
+}
+.FollowersIcon {
+/* icon / visability / shared */
+position: absolute;
+width: 24.08px;
+height: 24px;
+left: 56px;
+top: 519.74px;
+}
+.FollowersDescriptionMS {
+/* Description */
+position: absolute;
+left: 6.44%;
+right: 85.14%;
+top: 67.71%;
+bottom: 29.17%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+/* Black */
+color: #000000;
+}
+
+.Group300 {
+/* Group 300 */
+position: absolute;
+width: 129.08px;
+height: 24.24px;
+left: 219px;
+top: 519.74px;
+}
+.FollowingIcon {
+/* icon / visability / provate */
+position: absolute;
+width: 24.08px;
+height: 24px;
+left: 219px;
+top: 519.74px;
+}
+.FollowingDescriptionMS {
+/* Description */
+position: absolute;
+left: 18.38%;
+right: 74.52%;
+top: 67.71%;
+bottom: 29.17%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+/* identical to box height, or 24px */
+/* Black */
+color: #000000;
+}
+
+.ReposHeader {
+/* Type something */
+position: absolute;
+height: 42px;
+left: 31.84%;
+right: 47%;
+top: calc(50% - 42px/2 - 263px);
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 130%;
+/* identical to box height, or 42px */
+
+/* Black */
+color: #000000;
+}
+
+.Group294 {
+/* Group 294 */
+position: absolute;
+width: 877px;
+height: 112px;
+left: 433px;
+top: 171px;
+}
+.Content294 {
+/* content */
+/* Auto layout */
+/*display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 24px 32px;
+gap: 16px;*/
+
+position: absolute;
+width: 877px;
+height: 112px;
+left: 433px;
+top: 171px;
+
+/* Base / White */
+background: #FFFFFF;
+border-radius: 6px;
+}
+
+.RepoName {
+/* Type something */
+width: 191px;
+height: 29px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+color: #0064EB;
+
+/* Inside auto layout */
+/*flex: none;
+order: 0;
+flex-grow: 0;*/
+}
+
+.RepoDescription {
+/* Type something */
+width: 586px;
+height: 19px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+
+color: #000000;
+
+/* Inside auto layout */
+/*flex: none;
+order: 1;
+flex-grow: 0;*/
+}
+
+.Group295 {
+/* Group 295 */
+position: absolute;
+width: 877px;
+height: 112px;
+left: 433px;
+top: 307px;
+}
+.Content295 {
+/* content */
+/* Auto layout */
+/*display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 24px 32px;
+gap: 16px;*/
+
+position: absolute;
+width: 877px;
+height: 112px;
+left: 433px;
+top: 307px;
+
+/* Base / White */
+background: #FFFFFF;
+border-radius: 6px;
+}
+
+.Group296 {
+/* Group 296 */
+position: absolute;
+width: 877px;
+height: 112px;
+left: 433px;
+top: 443px;
+}
+.Content296 {
+/* content */
+/* Auto layout */
+/*display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 24px 32px;
+gap: 16px;*/
+
+position: absolute;
+width: 877px;
+height: 112px;
+left: 433px;
+top: 443px;
+
+/* Base / White */
+background: #FFFFFF;
+border-radius: 6px;
+}
+
+.Group297 {
+/* Group 297 */
+position: absolute;
+width: 877px;
+height: 112px;
+left: 433px;
+top: 579px;
+}
+.Content297 {
+/* content */
+/* Auto layout */
+/*display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 24px 32px;
+gap: 16px;*/
+
+position: absolute;
+width: 877px;
+height: 112px;
+left: 433px;
+top: 579px;
+
+/* Base / White */
+background: #FFFFFF;
+border-radius: 6px;
+}
+
+/*==================== Loader ====================*/
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /*z-index: 1;
+  margin: -76px 0 0 -76px;*/
+
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/*================================ Pagination ================================*/
+.Pagination {
+/* pagination / default */
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 16px;
+
+position: absolute;
+width: 337px;
+height: 25px;
+left: 960px;
+top: 715px;
+}
+
+.Items {
+/* Name */
+width: 111px;
+height: 21px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height, or 150% */
+
+display: flex;
+align-items: center;
+
+color: #808080;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.IconArrowLeft {
+/* icon / arrow / left-default */
+width: 24px;
+height: 24px;
+
+/*transform: matrix(-1, 0, 0, 1, 0, 0);*/
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+
+/* Name */
+
+.NumberOne {
+width: 7px;
+height: 21px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height, or 150% */
+
+display: flex;
+align-items: center;
+
+color: #808080;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+}
+
+.Frame36 {
+/* Frame 36 */
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 2px 6px;
+gap: 10px;
+
+width: 21px;
+height: 25px;
+
+background: #0064EB;
+border-radius: 3px;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+}
+
+.NumberTwo {
+/* Name */
+width: 9px;
+height: 21px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height, or 150% */
+
+display: flex;
+align-items: center;
+
+/* White */
+color: #FFFFFF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.NumberThree {
+/* Name */
+width: 9px;
+height: 21px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height, or 150% */
+
+display: flex;
+align-items: center;
+
+color: #808080;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+}
+
+.Dots {
+/* Name */
+width: 13px;
+height: 22px;
+
+font-family: 'Work Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 138.5%;
+/* or 22px */
+
+display: flex;
+align-items: center;
+
+color: #808080;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+flex-grow: 0;
+}
+
+.NumberTen {
+/* Name */
+width: 16px;
+height: 21px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height, or 150% */
+
+display: flex;
+align-items: center;
+
+color: #808080;
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+flex-grow: 0;
+}
+
+.IconArrowRight {
+/* icon / arrow / right-default */
+width: 24px;
+height: 24px;
+
+/*transform: matrix(-1, 0, 0, 1, 0, 0);*/
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+flex-grow: 0;
+}
+.IconArrowRightRotated {
+/* icon / arrow / right-default */
+width: 24px;
+height: 24px;
+
+transform: matrix(-1, 0, 0, 1, 0, 0);
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+flex-grow: 0;
+}
+/*================================================================*/

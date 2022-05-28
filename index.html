@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Searchable GitHub User Information (with interactivity)</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+	<link rel="stylesheet" href="static/css/style.css">
+	
+	<style>
+	  div.NumberOne, img#PageArrowLeft, img#PageArrowRight {cursor: pointer;}
+	</style>
+  </head>
+  <body>
+    <div id="root"></div>
+	
+<script type="text/babel">
+
+class RepositoryRow extends React.Component {
+  render() {
+	const index = this.props.index;
+	const repository = this.props.repository;
+	let styleNumber;
+	
+    switch (index) {
+	  case 0:
+		styleNumber = 294;
+		break;
+	  case 1:
+		styleNumber = 295;
+		break;
+	  case 2:
+		styleNumber = 296;
+		break;
+	  case 3:
+		styleNumber = 297;
+		break;
+	  default:
+		break;
+	}
+
+	return (
+	  <div className={'Content' + styleNumber}>
+		<div className="RepoName">
+		  <a href={repository.html_url} target="_blank" rel="noopener noreferrer">
+			{repository.name}
+		  </a>
+		</div>
+	    <div className="RepoDescription">
+		  {repository.description}
+		</div>
+	  </div>
+	);
+  }
+}
+
+class RepositoriesInformation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handlePagination = this.handlePagination.bind(this);
+  }
+  
+  handlePagination(e) {
+    const currentPageNumber = parseInt(this.props.currentPageNumber);
+	const elementId = e.target.id;
+	let chosenPageNumber;
+	
+	if (elementId === 'PageArrowLeft') {
+	  chosenPageNumber = currentPageNumber - 1;
+	} else if (elementId === 'PageArrowRight') {
+	  chosenPageNumber = currentPageNumber + 1;
+	} else {
+	  chosenPageNumber = e.target.innerHTML;
+	}
+	
+    this.props.onPaginationClick(chosenPageNumber);
+  }
+
+  render() {
+    const repositories = this.props.repositories;
+	const reposQuantity = this.props.reposQuantity;
+	const currentPageNumber = parseInt(this.props.currentPageNumber, 10);
+	const lastPageNumber = (reposQuantity%4 == 0) ? reposQuantity/4 : Math.trunc(reposQuantity/4)+1;
+	const rows = [];
+	const pagination = [];
+	
+    repositories.forEach((repository, index) => {
+	  rows.push(<RepositoryRow index={index} repository={repository} key={repository.id} />)	  
+    });
+	
+	if (lastPageNumber > 1) {
+	
+	  if (currentPageNumber == 1) {
+		pagination.push(
+		<div className="Pagination" key={1}>
+		  <div className="Items" style={{order:0}}>
+			{currentPageNumber*4-3}-{currentPageNumber*4} of {reposQuantity} items
+		  </div>
+		  <div className="IconArrowLeft" style={{order:1}}>
+		  </div>
+		  <div className="Frame36" style={{order:2}}>
+			<div className="NumberOne" style={{color: '#FFFFFF', order:0}} onClick={this.handlePagination}>
+			  {currentPageNumber}
+			</div>
+		  </div>
+		  <div className="NumberOne" style={{order:3}} onClick={this.handlePagination}>
+			{currentPageNumber+1}
+		  </div>
+		  <div className="NumberOne" style={{order:4}} onClick={this.handlePagination}>
+			{currentPageNumber+2}
+		  </div>		
+		  <div className="Dots" style={{order:5}}>
+			...
+		  </div>
+		  <div className="NumberOne" style={{order:6}} onClick={this.handlePagination}>
+			{lastPageNumber}
+		  </div>
+		  <div className="IconArrowRight" style={{order:7}}>
+			<img id="PageArrowRight" src="static/img/icon-arrow-right.png" width="8" height="12" onClick={this.handlePagination} />
+		  </div>
+		</div>
+		);
+	  }
+	  else if (currentPageNumber == 2) {
+		pagination.push(
+		<div className="Pagination" key={2}>
+		  <div className="Items" style={{order:0}}>
+			{currentPageNumber*4-3}-{currentPageNumber*4} of {reposQuantity} items
+		  </div>
+		  <div className="IconArrowRightRotated" style={{order:1}}>
+			<img id="PageArrowLeft" src="static/img/icon-arrow-right.png" width="8" height="12" onClick={this.handlePagination} />
+		  </div>
+		  <div className="NumberOne" style={{order:2}} onClick={this.handlePagination}>
+			{currentPageNumber-1}
+		  </div>
+		  <div className="Frame36" style={{order:3}}>
+			<div className="NumberOne" style={{color: '#FFFFFF', order:0}} onClick={this.handlePagination}>
+			  {currentPageNumber}
+			</div>
+		  </div>
+		  <div className="NumberOne" style={{order:4}} onClick={this.handlePagination}>
+			{currentPageNumber+1}
+		  </div>		
+		  <div className="Dots" style={{order:5}}>
+			...
+		  </div>
+		  <div className="NumberOne" style={{order:6}} onClick={this.handlePagination}>
+			{lastPageNumber}
+		  </div>
+		  <div className="IconArrowRight" style={{order:7}}>
+			<img id="PageArrowRight" src="static/img/icon-arrow-right.png" width="8" height="12" onClick={this.handlePagination} />
+		  </div>
+		</div>
+		);
+	  }
+	  else if (currentPageNumber == 3) {
+		pagination.push(
+		<div className="Pagination" key={3}>
+		  <div className="Items" style={{order:0}}>
+			{currentPageNumber*4-3}-{currentPageNumber*4} of {reposQuantity} items
+		  </div>
+		  <div className="IconArrowRightRotated" style={{order:1}}>
+			<img id="PageArrowLeft" src="static/img/icon-arrow-right.png" width="8" height="12" onClick={this.handlePagination} />
+		  </div>
+		  <div className="NumberOne" style={{order:2}} onClick={this.handlePagination}>
+			{currentPageNumber-2}
+		  </div>
+		  <div className="NumberOne" style={{order:3}} onClick={this.handlePagination}>
+			{currentPageNumber-1}
+		  </div>
+		  <div className="Frame36" style={{order:4}}>
+			<div className="NumberOne" style={{color: '#FFFFFF', order:0}} onClick={this.handlePagination}>
+			  {currentPageNumber}
+			</div>
+		  </div>		
+		  <div className="Dots" style={{order:5}}>
+			...
+		  </div>
+		  <div className="NumberOne" style={{order:6}} onClick={this.handlePagination}>
+			{lastPageNumber}
+		  </div>
+		  <div className="IconArrowRight" style={{order:7}}>
+			<img id="PageArrowRight" src="static/img/icon-arrow-right.png" width="8" height="12" onClick={this.handlePagination} />
+		  </div>
+		</div>
+		);
+	  }
+	  else if (currentPageNumber > 3 && currentPageNumber < lastPageNumber-2) {
+		pagination.push(
+		<div className="Pagination" key={4}>
+		  <div className="Items" style={{order:0}}>
+			{currentPageNumber*4-3}-{currentPageNumber*4} of {reposQuantity} items
+		  </div>
+		  <div className="IconArrowRightRotated" style={{order:1}}>
+			<img id="PageArrowLeft" src="static/img/icon-arrow-right.png" width="8" height="12" onClick={this.handlePagination} />
+		  </div>
+		  <div className="NumberOne" style={{order:2}} onClick={this.handlePagination}>
+			{1}
+		  </div>
+		  <div className="Dots" style={{order:3}}>
+			...
+		  </div>
+		  <div className="NumberOne" style={{order:4}} onClick={this.handlePagination}>
+			{currentPageNumber-1}
+		  </div>
+		  <div className="Frame36" style={{order:5}}>
+			<div className="NumberOne" style={{color:'#FFFFFF', order:0}} onClick={this.handlePagination}>
+			  {currentPageNumber}
+			</div>
+		  </div>
+		  <div className="NumberOne" style={{order:6}} onClick={this.handlePagination}>
+			{currentPageNumber+1}
+		  </div>		
+		  <div className="Dots" style={{order:7}}>
+			...
+		  </div>
+		  <div className="NumberOne" style={{order:8}} onClick={this.handlePagination}>
+			{lastPageNumber}
+		  </div>
+		  <div className="IconArrowRight" style={{order:9}}>
+			<img id="PageArrowRight" src="static/img/icon-arrow-right.png" width="8" height="12" onClick={this.handlePagination} />
+		  </div>
+		</div>
+		);
+	  }
+	  else if (currentPageNumber == lastPageNumber-2) {
+		pagination.push(
+		<div className="Pagination" key={5}>
+		  <div className="Items" style={{order:0}}>
+			{currentPageNumber*4-3}-{currentPageNumber*4} of {reposQuantity} items
+		  </div>
+		  <div className="IconArrowRightRotated" style={{order:1}}>
+			<img id="PageArrowLeft" src="static/img/icon-arrow-right.png" width="8" height="12" onClick={this.handlePagination} />
+		  </div>
+		  <div className="NumberOne" style={{order:2}} onClick={this.handlePagination}>
+			{1}
+		  </div>
+		  <div className="Dots" style={{order:3}}>
+			...
+		  </div>
+		  <div className="Frame36" style={{order:4}}>
+			<div className="NumberOne" style={{color: '#FFFFFF', order:0}} onClick={this.handlePagination}>
+			  {currentPageNumber}
+			</div>
+		  </div>		
+		  <div className="NumberOne" style={{order:5}} onClick={this.handlePagination}>
+			{currentPageNumber+1}
+		  </div>		
+		  <div className="NumberOne" style={{order:6}} onClick={this.handlePagination}>
+			{currentPageNumber+2}
+		  </div>
+		  <div className="IconArrowRight" style={{order:7}}>
+			<img id="PageArrowRight" src="static/img/icon-arrow-right.png" width="8" height="12" onClick={this.handlePagination} />
+		  </div>
+		</div>
+		);
+	  }
+	  else if (currentPageNumber == lastPageNumber-1) {
+		pagination.push(
+		<div className="Pagination" key={6}>
+		  <div className="Items" style={{order:0}}>
+			{currentPageNumber*4-3}-{currentPageNumber*4} of {reposQuantity} items
+		  </div>
+		  <div className="IconArrowRightRotated" style={{order:1}}>
+			<img id="PageArrowLeft" src="static/img/icon-arrow-right.png" width="8" height="12" onClick={this.handlePagination} />
+		  </div>
+		  <div className="NumberOne" style={{order:2}} onClick={this.handlePagination}>
+			{1}
+		  </div>
+		  <div className="Dots" style={{order:3}}>
+			...
+		  </div>
+		  <div className="NumberOne" style={{order:4}} onClick={this.handlePagination}>
+			{currentPageNumber-1}
+		  </div>
+		  <div className="Frame36" style={{order:5}}>
+			<div className="NumberOne" style={{color: '#FFFFFF', order:0}} onClick={this.handlePagination}>
+			  {currentPageNumber}
+			</div>
+		  </div>
+		  <div className="NumberOne" style={{order:6}} onClick={this.handlePagination}>
+			{currentPageNumber+1}
+		  </div>
+		  <div className="IconArrowRight" style={{order:7}}>
+			<img id="PageArrowRight" src="static/img/icon-arrow-right.png" width="8" height="12" onClick={this.handlePagination} />
+		  </div>
+		</div>
+		);
+	  }
+	  else if (currentPageNumber == lastPageNumber) {
+		pagination.push(
+		<div className="Pagination" key={7}>
+		  <div className="Items" style={{order:0}}>
+			{currentPageNumber*4-3}-{currentPageNumber*4} of {reposQuantity} items
+		  </div>
+		  <div className="IconArrowRightRotated" style={{order:1}}>
+			<img id="PageArrowLeft" src="static/img/icon-arrow-right.png" width="8" height="12" onClick={this.handlePagination} />
+		  </div>
+		  <div className="NumberOne" style={{order:2}} onClick={this.handlePagination}>
+			{1}
+		  </div>
+		  <div className="Dots" style={{order:3}}>
+			...
+		  </div>
+		  <div className="NumberOne" style={{order:4}} onClick={this.handlePagination}>
+			{currentPageNumber-2}
+		  </div>
+		  <div className="NumberOne" style={{order:5}} onClick={this.handlePagination}>
+			{currentPageNumber-1}
+		  </div>
+		  <div className="Frame36" style={{order:6}}>
+			<div className="NumberOne" style={{color: '#FFFFFF', order:0}} onClick={this.handlePagination}>
+			  {currentPageNumber}
+			</div>
+		  </div>
+		  <div className="IconArrowRight" style={{order:7}}>
+		  </div>
+		</div>
+		);
+	  }
+
+	} //if (lastPageNumber > 4)
+	else {
+	  pagination.push(
+		<div className="Pagination" key={8}>
+		  <div className="Items">
+			{1}-{reposQuantity} of {reposQuantity} items
+		  </div>
+		</div>
+	  )
+	}
+	
+    return (
+	  <div>
+		<div className="ReposHeader">
+		  Repositories ({reposQuantity})
+		</div>
+		
+		{rows}
+
+		{pagination}
+		
+	  </div>
+	);
+  }
+}
+
+class UserInformation extends React.Component {
+  render() {
+    const user = this.props.user;
+	const styleSuffix = this.props.styleSuffix;
+    return (  
+	  <div>
+		<div className="Image1">
+		  <img src={user.avatar_url} width="280" height="280" alt="GitHub user avatar" />
+		</div>
+		
+		<div className={'FullName'+styleSuffix}>
+		  {user.name}
+		</div>
+		<div className={'UserName'+styleSuffix}>
+		  <a href={user.html_url} target="_blank" rel="noopener noreferrer">
+			{user.login}
+		  </a>
+		</div>
+		
+		<div className="FollowersIcon">
+		  <img src="static/img/followers-icon.png" width="24.08" height="24" />
+		</div>
+		<div className={'FollowersDescription'+styleSuffix}>{user.followers + ' followers'}</div>
+
+		<div className="FollowingIcon">
+		  <img src="static/img/following-icon.png" width="24.08" height="24" />
+		</div>
+		<div className={'FollowingDescription'+styleSuffix}>{user.following + ' following'}</div>
+	  </div>
+	);
+  }
+}
+
+class ReposNotFound extends React.Component {
+  render() {
+    return (
+	  <div>
+		<div className="IconRep"> 
+		  <img src="static/img/icon-rep.png" width="110" height="110" />
+		</div>
+		<div className="IconRepText">Repository list is empty</div>
+	  </div>
+	);
+  }
+}
+
+class UserNotFound extends React.Component {
+  render() {
+    return (
+	  <div>
+		<div className="IconUser"> 
+		  <img src="static/img/icon-user.png" width="110" height="110" />
+		</div>
+		<div className="IconUserText">User not found</div>
+	  </div>
+	);
+  }
+}
+
+class InitialState extends React.Component {
+  render() {
+    return (
+      <div>
+		<div className="IconSearch"> 
+		  <img src="static/img/icon-search.png" width="110" height="110" />
+		</div>
+		<div className="IconSearchText">Start with searching a GitHub user</div>
+      </div>
+	);
+  }
+}
+
+class SearchBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
+	this.handleSearchFormSubmit = this.handleSearchFormSubmit.bind(this);
+  }
+  
+  handleSearchTextChange(e) {
+    this.props.onSearchTextChange(e.target.value);
+  }
+  
+  handleSearchFormSubmit(e) {
+	e.preventDefault();
+	this.props.onSearchFormSubmit(e.target.firstChild.value);
+  }
+  
+  render() {
+    return (
+	  <div className="Header">
+  		<div className="Body"> </div>
+		<div className="Devider"> </div>
+		<div className="Frame">
+		  <div className="Vector"> </div>
+		</div>
+		<div className="Search">
+		  <form onSubmit={this.handleSearchFormSubmit}>
+		    <input className="Rectangle1" type="text" placeholder="Enter GitHub username" value={this.props.searchText} onChange={this.handleSearchTextChange} />
+		  </form>
+		</div>
+	  </div>
+    );
+  }
+}
+
+class SearchableGitHubUserInformation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+	  initialState: true,
+	  searchText: '',
+	  formSubmit: false,
+	  userNotFound: false,
+	  user: {},
+	  repos: [],
+      pageNumber: 1
+    };
+	
+	this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
+	this.handleSearchFormSubmit = this.handleSearchFormSubmit.bind(this);
+	this.handlePagination = this.handlePagination.bind(this);
+  }
+  
+  handlePagination(pageNumber) {
+    this.setState({
+	  formSubmit: true,
+	  pageNumber
+    });
+  }
+
+  handleSearchTextChange(searchText) {
+    this.setState({
+	  formSubmit: false,
+      searchText
+    });
+  }
+  
+  handleSearchFormSubmit(searchText) {
+    this.setState({
+	  formSubmit: true,
+      searchText,
+	  pageNumber: 1
+    });
+  }
+  
+  componentDidUpdate(prevProps, prevState) {
+	const username = this.state.searchText;
+	const pageNumber = this.state.pageNumber;
+	
+	if (this.state.formSubmit) {
+	  (async () => {
+	
+	    let response1 = await fetch('https://api.github.com/users/'+username);
+	    if (response1.ok) {
+	      let user = await response1.json();
+		  
+	      let response2 = await fetch(user.repos_url + '?per_page=4&page=' + pageNumber);
+	      if (response2.ok) {
+		    let repos = await response2.json();
+		
+            this.setState({
+			  initialState: false,
+			  formSubmit: false,
+			  userNotFound: false,
+		      user,
+              repos
+            });
+	      }
+		  else {
+		    this.setState({
+			  initialState: false,
+			  formSubmit: false,
+			  userNotFound: false,
+			  //user: {},
+			  repos: []
+		    });
+		  }
+	    }
+	    else {
+		  this.setState({
+			initialState: false,
+			formSubmit: false,
+			userNotFound: true,
+			user: {},
+			repos: []
+		  });
+	    }
+	
+      })();
+	} //formSubmit condition end.
+  }
+
+  componentDidMount() {
+  }
+
+  render() {
+    const {initialState, searchText, formSubmit, userNotFound, user, repos, pageNumber } = this.state;
+    
+	if (initialState) {
+      return (
+		<div className="InitialState">
+		  <SearchBar
+		    searchText={searchText}
+			onSearchTextChange={this.handleSearchTextChange} 
+			onSearchFormSubmit={this.handleSearchFormSubmit}/>
+		  <InitialState />
+		</div>
+      );	  
+    } else if (formSubmit) {
+      return <div className="loader"></div>;
+	} else if (userNotFound) {
+      return (
+		<div className="InitialState">
+		  <SearchBar
+		    searchText={searchText}
+			onSearchTextChange={this.handleSearchTextChange} 
+			onSearchFormSubmit={this.handleSearchFormSubmit} />
+		  <UserNotFound />
+		</div>
+	  );
+	} else if (repos.length === 0) {
+      return (
+		<div className="InitialState">
+		  <SearchBar
+		    searchText={searchText}
+			onSearchTextChange={this.handleSearchTextChange} 
+			onSearchFormSubmit={this.handleSearchFormSubmit} />
+		  <UserInformation user={user} styleSuffix="IS" />
+		  <ReposNotFound />
+		</div>
+	  );
+    } else {
+      return (
+		<div className="MainScreen">
+		  <SearchBar
+		    searchText={searchText}
+			onSearchTextChange={this.handleSearchTextChange} 
+			onSearchFormSubmit={this.handleSearchFormSubmit}/>
+		  <UserInformation
+			user={user}
+			styleSuffix="MS" />
+		  <RepositoriesInformation 
+			currentPageNumber={pageNumber}
+			reposQuantity={user.public_repos}
+			repositories={repos}
+			onPaginationClick={this.handlePagination} />
+		</div>
+      );
+    }
+  }
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<SearchableGitHubUserInformation />);
+
+</script>
+
+  </body>
+</html>
